@@ -5,12 +5,43 @@
     scroll-behavior: smooth;
 }
 
+body{
+    background: linear-gradient(black, brown);
+}
+
 div#root {
-    width: 10vw;
-    height: 10vw;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2%;
 }
 
 img {
-    width: 10vw;
-    height: 10vw;
+    width: 15vw;
+    height: 15vw;
+    border-radius: 150px;
+}
+
+.card {
+    width: 17vw;
+    height: 45vh;
+    margin: 1%;
+    padding: 1%;
+    border: 2px solid brown;
+    background-color: #202020;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.card-body {
+    width: 15vw;
+    height: 15vh;
+}
+
+h2, p {
+    text-align: center;
+    color: white;
 }
