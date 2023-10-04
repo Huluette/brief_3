@@ -66,13 +66,20 @@ function displayUsers(users) {
         cardBody.appendChild(description);
     });
 
-    usersContainer.addEventListener("click", function(event) {
-        const target = event.target(".card");
-        if (target) {
-            // L'élément de carte a été cliqué, faites quelque chose ici
-            console.log("Carte cliquée !", target);
-        }
-    });
+    usersContainer.addEventListener("click", function (event) {
+        const target = event.target;
 
+        if (target.classList.contains("card")) {
+            const modalContent = document.querySelector(".card");
+            modalContent.className = "modal";
+
+            target.innerHTML = usersContainer.innerHTML;
+        }
+
+        modalContent.style.display = "block";
+
+        const closeBtn = document.createElement("span");
+    })
 }
+
 
