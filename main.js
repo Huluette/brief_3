@@ -66,18 +66,13 @@ function displayUsers(users) {
         cardBody.appendChild(description);
     });
 
-    document.getElementById("root").addEventListener("click", function(event) {
-        const target = event.target; 
-    
-        if (target.classList.contains("card")) {
-            usersContainer.innerHTML = target.innerHTML; 
-            const closeBtn = document.createElement("span"); 
-    
-            modal.style.display = "block";
-    
-            target.appendChild(userCard);
+    usersContainer.addEventListener("click", function(event) {
+        const target = event.target(".card");
+        if (target) {
+            // L'élément de carte a été cliqué, faites quelque chose ici
+            console.log("Carte cliquée !", target);
         }
-    })
-}
+    });
 
+}
 
