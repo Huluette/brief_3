@@ -27,7 +27,7 @@ img {
 
 .card {
     width: 17vw;
-    height: 45vh;
+    height: 55vh;
     margin: 1%;
     padding: 1%;
     border: 2px solid brown;
@@ -41,7 +41,13 @@ img {
     height: 15vh;
 }
 
-h2, p {
+h2, h4, p {
     text-align: center;
     color: white;
+}
+
+.write {
+    margin-top: 15px;
+    text-align: center;
+    color: brown;
 }

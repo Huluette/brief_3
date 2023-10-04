@@ -30,24 +30,30 @@ function displayUsers(users) {
         userCard.className = "card";
 
         // Appelation de l'image pour afficher l'avatar
-        
+
         const avatar = document.createElement("img");
         avatar.src = user.avatar;
         avatar.className = "card-img-top";
         avatar.alt = `Avatar of ${user.first_name} ${user.last_name}`;
 
         // Création de la div et de son contenu
-        
+
         const cardBody = document.createElement("div");
         cardBody.className = "card-body";
-        
+
         const userName = document.createElement("h2");
         userName.className = "card-title";
         userName.textContent = `${user.first_name} ${user.last_name}`;
-        
-        const userEmail = document.createElement("p");
+
+        const userEmail = document.createElement("h4");
         userEmail.className = "card-text";
         userEmail.textContent = `${user.email}`;
+
+        const description = document.createElement("p");
+        description.className = "write";
+        description.textContent = `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Inventore expedita quaerat.`;
+
+        // Permet de renvoyer et d'afficher les cards
 
         cardBody.appendChild(userName);
         cardBody.appendChild(userEmail);
@@ -56,7 +62,22 @@ function displayUsers(users) {
         userCard.appendChild(cardBody);
 
         usersContainer.appendChild(userCard);
+
+        cardBody.appendChild(description);
     });
+
+    document.getElementById("root").addEventListener("click", function(event) {
+        const target = event.target; 
+    
+        if (target.classList.contains("card")) {
+            usersContainer.innerHTML = target.innerHTML; 
+            const closeBtn = document.createElement("span"); 
+    
+            modal.style.display = "block";
+    
+            target.appendChild(userCard);
+        }
+    })
 }
 
 
