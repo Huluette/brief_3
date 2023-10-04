@@ -79,13 +79,14 @@ function displayUsers(users) {
 async function openModal(userModal) {
     
     const modal = document.createElement("div");
+    modal.className = "modal";
     modal.innerHTML = `
-        <div class="card pop-up" style="width: 18rem;">
+        <div class="card">
             <img class="card-img-top" src="${userModal.avatar}">
             <div class="card-body">
                 <h2>${userModal.first_name} ${userModal.last_name}</h2>
                 <h4>${userModal.email}</h4>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Inventore expedita quaerat.</p>
+                <p class="write">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Inventore expedita quaerat.</p>
             </div>
         </div>
     `;

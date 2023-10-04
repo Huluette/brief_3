@@ -5,11 +5,13 @@
     scroll-behavior: smooth;
 }
 
-body{
+body {
+    width: 100%;
+    height: auto;
     background: linear-gradient(black, brown);
 }
 
-div#root {
+body div#root {
     width: 100%;
     height: auto;
     display: flex;
@@ -19,15 +21,15 @@ div#root {
     padding: 2%;
 }
 
-img {
+body img {
     width: 15vw;
     height: 15vw;
     border-radius: 150px;
 }
 
-.card {
+body .card {
     width: 17vw;
-    height: 55vh;
+    height: 27vw;
     margin: 1%;
     padding: 1%;
     border: 2px solid brown;
@@ -36,30 +38,79 @@ img {
     cursor: pointer;
 }
 
-.card-body {
+body .card-body {
     width: 15vw;
-    height: 15vh;
+    height: 10vw;
 }
 
-h2, h4, p {
+body h2{
+    font-size: 1.5vw;
     text-align: center;
     color: white;
 }
 
-.write {
+body h4{
+    font-size: 1vw;
+    text-align: center;
+    color: white;
+}
+
+body .write {
     margin-top: 15px;
+    font-size: 1vw;
     text-align: center;
     color: brown;
 }
 
-div {
-    display: none;
+body .modal {
     position: fixed;
-    z-index: 1;
-    left: 0;
     top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.4);
-  }
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body .modal img {
+    width: 15vw;
+    height: 15vw;
+    border-radius: 150px;
+}
+
+body .modal .card {
+    width: 17.5vw;
+    height: 27vw;
+    margin: 1%;
+    padding: 1%;
+    border: 2px solid brown;
+    background-color: #202020;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+body .modal .card-body {
+    width: 15vw;
+    height: 10vw;
+}
+
+body .modal h2 {
+    font-size: 1.5vw;
+    text-align: center;
+    color: white;
+}
+
+body .modal h4 {
+    font-size: 1vw;
+    text-align: center;
+    color: white;
+}
+
+body .modal .write {
+    margin-top: 15px;
+    font-size: 1vw;
+    text-align: center;
+    color: brown;
+}
