@@ -1,4 +1,4 @@
-// Utilisation de la méthode fecth //
+// Utilisation de la méthode fetch //
 
 // Test utilisation url api
 
@@ -8,7 +8,7 @@ function fetchApi() {
     fetch("https://reqres.in/api/users?per_page=12")
         .then(response => response.json())
         .then(data => displayUsers(data.data))
-        .catch(console.error)
+        .catch(console.error);
 }
 
 // Appelation de la fonction
@@ -28,6 +28,7 @@ function displayUsers(users) {
 
         const userCard = document.createElement("div");
         userCard.className = "card";
+        userCard.setAttribute("data-user-id", user.id);
 
         // Appelation de l'image pour afficher l'avatar
 
@@ -57,29 +58,46 @@ function displayUsers(users) {
 
         cardBody.appendChild(userName);
         cardBody.appendChild(userEmail);
+        cardBody.appendChild(description);
 
         userCard.appendChild(avatar);
         userCard.appendChild(cardBody);
 
         usersContainer.appendChild(userCard);
 
-        cardBody.appendChild(description);
+        userCard.addEventListener("click", () => {
+            const userId = userCard.dataset.userId;
+            const userModal = users.find(i => i.id === parseInt(userId));
+
+        // renvoit tout les éléments de l'objet user
+
+            openModal(userModal);
+        });
     });
-
-    usersContainer.addEventListener("click", function (event) {
-        const target = event.target;
-
-        if (target.classList.contains("card")) {
-            const modalContent = document.querySelector(".card");
-            modalContent.className = "modal";
-
-            target.innerHTML = usersContainer.innerHTML;
-        }
-
-        modalContent.style.display = "block";
-
-        const closeBtn = document.createElement("span");
-    })
 }
 
+async function openModal(userModal) {
+    
+    const modal = document.createElement("div");
+    modal.innerHTML = `
+        <div class="card pop-up" style="width: 18rem;">
+            <img class="card-img-top" src="${userModal.avatar}">
+            <div class="card-body">
+                <h2>${userModal.first_name} ${userModal.last_name}</h2>
+                <h4>${userModal.email}</h4>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Inventore expedita quaerat.</p>
+            </div>
+        </div>
+    `;
 
+    modal.querySelector(".card").addEventListener("click", (e) => {
+        e.stopPropagation();
+    })
+
+    modal.addEventListener("click", () => {
+        modal.remove();
+    })
+
+
+    document.body.appendChild(modal);
+}
